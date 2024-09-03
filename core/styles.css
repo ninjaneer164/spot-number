@@ -1,0 +1,25 @@
+.spot-number {
+  font-size: 1.5rem;
+
+  &.__debug__ {
+    .digit0 {
+      background-color: rgba(0, 255, 0, 0.1);
+    }
+
+    .digit1 {
+      background-color: rgba(0, 0, 255, 0.1);
+    }
+
+    .number {
+      background-color: red;
+    }
+
+    .transposed {
+      background-color: rgba(255, 0, 255, 0.1);
+    }
+  }
+
+  td {
+    padding: 0.25rem;
+  }
+}
