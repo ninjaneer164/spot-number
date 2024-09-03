@@ -1,0 +1,14 @@
+<div
+  class="spot-number"
+  [ngClass]="{'__debug__':isDebug}"
+>
+  <table>
+    <ng-container *ngFor="let row of numbers">
+      <tr>
+        <ng-container *ngFor="let col of row">
+          <td [ngClass]="{ digit0: col===digit0, digit1:col===digit1,number:col===number,transposed:col===transposed }">{{ col }}</td>
+        </ng-container>
+      </tr>
+    </ng-container>
+  </table>
+</div>
