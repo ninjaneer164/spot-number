@@ -2,6 +2,7 @@
   class="spot-number"
   [ngClass]="{'__debug__':isDebug}"
 >
+  <p>{{ 'spotNumber' | translate : {number} }}</p>
   <table>
     <ng-container *ngFor="let row of numbers">
       <tr>

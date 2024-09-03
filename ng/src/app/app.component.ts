@@ -3,13 +3,15 @@ import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
 import { initialParams, SpotNumberState } from '@core';
+import en from '@core/i18n/en.json';
 import { Store } from '@ngrx/store';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { selecSpotNumberState, SpotNumberActions } from '../store';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, TranslateModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -21,7 +23,9 @@ export class AppComponent {
   public numbers: string[][] = [];
   public transposed: string = '';
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private translate: TranslateService) {
+    this.translate.setTranslation('en', en);
+
     this.store.dispatch(SpotNumberActions.generageNumbers({ params: initialParams }));
 
     this.store.select(selecSpotNumberState).pipe(takeUntilDestroyed()).subscribe((state: SpotNumberState) => {
